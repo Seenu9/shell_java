@@ -15,7 +15,7 @@ public class Main {
         input= scanner.nextLine();
         
         }
-        while(!input.equlas("exit"));
+        while(!input.equals("exit"));
             scanner.close();
     }
 }
