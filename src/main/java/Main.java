@@ -9,9 +9,10 @@ public class Main {
         String input = scanner.nextLine();
         System.out.println(input+": command not found");
 
-        do{    
+        do{   
+        System.out.print("$ "); 
         System.out.println(input+": command not found");  
-        System.out.print("$ ");
+       
         input= scanner.nextLine();
         
         }
