@@ -17,11 +17,13 @@ public class Main {
             break;
         }
         else if(input.startsWith("echo")){
-            System.out.println(input.substring(4));
-        } 
-       
-       
-        
+            System.out.println(input.substring(5));
+        }
+        else{
+            System.out.println(input+" :command not found");
+        }
+
+        System.out.println(input+": command not found");
         }
         while(true);
     }
