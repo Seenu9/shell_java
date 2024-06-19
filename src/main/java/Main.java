@@ -12,12 +12,15 @@ public class Main {
         do{   
         System.out.print("$ "); 
         input= scanner.nextLine();
+
+        if(input.equals("exit 0")){
+            break;
+        }
         System.out.println(input+": command not found");  
        
        
         
         }
-        while(!input.equals("exit"));
-            scanner.close();
+        while(true);
     }
 }
