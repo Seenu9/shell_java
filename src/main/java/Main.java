@@ -20,6 +20,9 @@ public class Main {
         else if(term.equals("exit")){
           System.out.println(term+" is a shell builtin");
         }
+        else if(term.equals("type")){
+          System.out.println(term+" is a shell builtin");
+        }
         else{
           System.out.println(term+": not found");
         }        
