@@ -11,9 +11,25 @@ public class Main {
       }
       if (input.startsWith("echo ")) {
         System.out.println(input.substring(5));
-      } else {
+      } 
+      if(input.startsWith("type ")){
+        String term=input.substring(5).trim();
+        if(term.equals("echo")){
+          System.out.println(term+" is a shell builtin");
+        }
+        else if(term.equals("exit")){
+          System.out.println(term+" is a shell builtin");
+        }
+        else{
+          System.out.println(term+": not found");
+        }        
+      }
+      else {
         System.out.println(input + ": command not found");
       }
+
+
+
     }
   }
 }
