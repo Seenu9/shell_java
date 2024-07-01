@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Set<String> commands = Set.of("exit", "type", "echo");
+        Set<String> commands = Set.of("exit", "type", "echo" ,"pwd");
         String[] paths = System.getenv("PATH").split(File.pathSeparator);
 
         Scanner scanner = new Scanner(System.in);
@@ -38,7 +38,7 @@ public class Main {
                 }
             }
             else if(input.equals("pwd")){
-                String userDirectory=new File(" ").getAbsolutePath();
+                String userDirectory=System.getProperty("user.dir");
                 System.out.println(userDirectory);
             }
             else {
