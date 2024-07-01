@@ -17,7 +17,8 @@ public class Main {
                 break;
             } else if (input.startsWith("echo ")) {
                 System.out.println(input.substring(5));
-            } else if (input.startsWith("type ")) {
+            }        
+            else if (input.startsWith("type ")) {
                 String term = input.substring(5).trim();
                 if (commands.contains(term)) {
                     System.out.println(term + " is a shell builtin");
@@ -35,7 +36,12 @@ public class Main {
                         System.out.println(term + ": not found");
                     }
                 }
-            } else {
+            }
+            else if(input.trim().equals("pwd")){
+                String userDirectory=new File(" ").getAbsolutePath();
+                System.out.println(userDirectory);
+            }
+            else {
                String[] allcommands=input.split("\\s+");
                String command=allcommands[0];
                boolean isbuiltin=commands.contains(command);
