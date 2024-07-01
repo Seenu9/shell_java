@@ -31,12 +31,40 @@ public class Main {
                             break;
                         }
                     }
-                    if (!fileFound) {
+                          if (!fileFound) {
                         System.out.println(term + ": not found");
                     }
                 }
             } else {
-                System.out.println(input + ": command not found");
+               String[] allcommands=input.split("\\s+");
+               String command=allcommands[0];
+               boolean isbuiltin=commands.contains(command);
+               if(!isbuiltin){
+                boolean filefound=false;
+                for(String path:paths){
+                    File file=new File(path,command);
+                    if(file.exists()){
+                        filefound=true;
+                        try{
+                            ProcessBuilder pb=new ProcessBuilder(allcommands);
+                            pb.inheritIO();
+                            Process process=pb.start();
+                            process.waitFor();
+
+
+                        }
+                        catch(Exception e){
+                            System.out.println(e);
+                        }
+                        break;
+                    }
+                }
+                if(!filefound){
+                    System.out.println(command+": not found");
+                }
+               }else{
+                System.out.println(input+": command not found");
+               }
             }
         }
 
