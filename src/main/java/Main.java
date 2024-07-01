@@ -37,7 +37,7 @@ public class Main {
                     }
                 }
             }
-            else if(input.trim().equals("pwd")){
+            else if(input.equals("pwd")){
                 String userDirectory=new File(" ").getAbsolutePath();
                 System.out.println(userDirectory);
             }
