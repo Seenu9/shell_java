@@ -38,7 +38,7 @@ public class Main {
                 }
             }
             else if(input.equals("pwd")){
-                String userDirectory=System.getProperty("user.dir");
+                String userDirectory=new File(System.getProperty("user.dir")).getAbsolutePath();
                 System.out.println(userDirectory);
             }
             else if(input.startsWith("cd ")){
