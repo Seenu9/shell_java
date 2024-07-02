@@ -43,9 +43,9 @@ public class Main {
             }
             else if(input.startsWith("cd ")){
                 String directory=input.substring(3).trim();
-                File dir=new File(directory);
-                if(dir.isAbsolute()&&dir.exists&& dir.isDirectory()){
-                    System.setProperty("user.dir",dir.getAbsolutePath());
+                File diri=new File(directory);
+                if(diri.isAbsolute()&&diri.exists&& diri.isDirectory()){
+                    System.setProperty("user.dir",diri.getAbsolutePath());
                 }
                 else{
                     System.out.println("cd:"+directory+": No such file or directory");
