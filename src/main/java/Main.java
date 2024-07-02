@@ -41,26 +41,19 @@ public class Main {
                 String userDirectory=new File(System.getProperty("user.dir")).getAbsolutePath();
                 System.out.println(userDirectory);
             }
-            else if(input.startsWith("cd ")){
-                String directory=input.substring(3).trim();
-                File diri=new File(directory);
-                if(diri.isAbsolute()&&diri.exists()&& diri.isDirectory()){
-                    System.setProperty("user.dir",diri.getAbsolutePath());
-                }
-                else if(!diri.isAbsolute()){
-                    diri=new File(System.setProperty("user.dir", directory));
-                    if(diri.exists()&&diri.isDirectory()){
-                        System.setProperty("user.dir", directory);
+        
+            else if (input.startsWith("cd ")) {
+                    String directory = input.substring(3).trim();
+                    File dir = new File(directory);
+                    if (!dir.isAbsolute()) {
+                        dir = new File(System.getProperty("user.dir"), directory);
                     }
-                    else{
-                        System.out.println("cd: "+directory+": No such file or directory");
+                    if (dir.exists() && dir.isDirectory()) {
+                        System.setProperty("user.dir", dir.getCanonicalPath());
+                    } else {
+                        System.out.println("cd: " + directory + ": No such file or directory");
                     }
-                }
-                else{
-                    System.out.println("cd: "+directory+": No such file or directory");
-                }
-                
-            }
+             }
             else {
                String[] allcommands=input.split("\\s+");
                String command=allcommands[0];
