@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Set<String> commands = Set.of("exit", "type", "echo" ,"pwd");
+        Set<String> commands = Set.of("exit", "type", "echo" ,"pwd","cd");
         String[] paths = System.getenv("PATH").split(File.pathSeparator);
 
         Scanner scanner = new Scanner(System.in);
@@ -40,6 +40,17 @@ public class Main {
             else if(input.equals("pwd")){
                 String userDirectory=System.getProperty("user.dir");
                 System.out.println(userDirectory);
+            }
+            else if(input.startsWith("cd ")){
+                String directory=input.substring(3).trim();
+                File dir=new File(directory);
+                if(dir.isAbsolute()&&dir.exists&& dir.isDirectory()){
+                    System.setProperty("user.dir",dir.getAbsolutePath());
+                }
+                else{
+                    System.out.println("cd:"+directory+": No such file or directory");
+                }
+                
             }
             else {
                String[] allcommands=input.split("\\s+");
