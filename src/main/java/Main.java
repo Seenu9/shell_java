@@ -44,10 +44,16 @@ public class Main {
         
             else if (input.startsWith("cd ")) {
                     String directory = input.substring(3).trim();
-                    File dir = new File(directory);
-                    if (!dir.isAbsolute()) {
-                        dir = new File(System.getProperty("user.dir"), directory);
+                    File dir;
+                    if(directory.equals("~")){
+                        dir=new File(System.setProperty("user.home"));
+                    }else{
+                        dir=new File(directory);
+                        if (!dir.isAbsolute()) {
+                            dir = new File(System.getProperty("user.dir"), directory);
+                        }
                     }
+                    
                     if (dir.exists() && dir.isDirectory()) {
                         System.setProperty("user.dir", dir.getCanonicalPath());
                     } else {
