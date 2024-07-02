@@ -46,7 +46,7 @@ public class Main {
                     String directory = input.substring(3).trim();
                     File dir;
                     if(directory.equals("~")){
-                        dir=new File(System.setProperty("user.dir",System.getenv("HOME")));
+                        dir=new File(System.getenv("HOME"));
                     }else{
                         dir=new File(directory);
                         if (!dir.isAbsolute()) {
