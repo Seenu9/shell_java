@@ -47,6 +47,15 @@ public class Main {
                 if(diri.isAbsolute()&&diri.exists()&& diri.isDirectory()){
                     System.setProperty("user.dir",diri.getAbsolutePath());
                 }
+                else if(!diri.isAbsolute()){
+                    diri=new File(System.setProperty("user.dir", directory));
+                    if(diri.exists()&&diri.isDirectory()){
+                        System.setProperty("user.dir", directory);
+                    }
+                    else{
+                        System.out.println("cd: "+directory+": No such file or directory");
+                    }
+                }
                 else{
                     System.out.println("cd: "+directory+": No such file or directory");
                 }
