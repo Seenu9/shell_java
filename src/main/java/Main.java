@@ -44,7 +44,7 @@ public class Main {
             else if(input.startsWith("cd ")){
                 String directory=input.substring(3).trim();
                 File diri=new File(directory);
-                if(diri.isAbsolute()&&diri.exists&& diri.isDirectory()){
+                if(diri.isAbsolute()&&diri.exists()&& diri.isDirectory()){
                     System.setProperty("user.dir",diri.getAbsolutePath());
                 }
                 else{
